@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrincipalConductorComponent } from './principal-conductor/principal-conductor.component';
 import { FormsModule } from '@angular/forms';
+import { PrincipalTripulacionComponent } from './principal-tripulacion/principal-tripulacion.component';
 
 @NgModule({
   declarations: [
-    PrincipalConductorComponent
+    PrincipalConductorComponent,
+    PrincipalTripulacionComponent
   ],
   exports: [
-    PrincipalConductorComponent //Importante agregar esta exportacion
+    PrincipalConductorComponent, //Importante agregar esta exportacion
+    PrincipalTripulacionComponent
   ],
   imports: [
     CommonModule,

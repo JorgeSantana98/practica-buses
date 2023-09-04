@@ -1,28 +1,25 @@
-<h1 style="text-align: center;">Administración de Buses</h1>
+<h1 style="text-align: center;">Administración de Tripulaciones</h1>
 <div class="row">
     <button type="button" class="btn-custom" data-bs-toggle="modal" data-bs-target="#addModal"
         style="margin-bottom: 10px;">
-        New Bus
+        New Tripulacion
     </button>
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="addModalLabel">Agregar Bus</h1>
+                    <h1 class="modal-title fs-5" id="addModalLabel">Agregar Tripulacion</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
-                        <input class="form-control" type="text" placeholder="Placa" name="placa"
-                            [(ngModel)]="Nuevo.Placa" />
-                        <input class="form-control" type="number" placeholder="Tripulacion" name="tripulacion"
-                            [(ngModel)]="Nuevo.IdTripulacion" />
-                        <input class="form-control" type="text" placeholder="Tipo" name="tipo"
-                            [(ngModel)]="Nuevo.Tipo" />
-                        <input class="form-control" type="text" placeholder="Mantenimiento" name="mantenimiento"
-                            [(ngModel)]="Nuevo.Mantenimiento" />
-                        <input class="form-control" type="text" placeholder="Ocupado" name="ocupado"
-                            [(ngModel)]="Nuevo.Ocupado" />
+                        <input class="form-control" type="text" placeholder="Chofer 1" name="chofer1"
+                            [(ngModel)]="Nuevo.IdChofer1" />
+                        <input class="form-control" type="text" placeholder="Chofer 2" name="chofer2"
+                            [(ngModel)]="Nuevo.IdChofer2" />
+                        <input class="form-control" type="text" placeholder="Chofer 3" name="chofer3"
+                            [(ngModel)]="Nuevo.IdChofer3" />
+                        
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" id="btn-form" (click)="addOrEdit()" class="btn btn-primary">Save
@@ -34,18 +31,18 @@
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 ">
-        <div class="col " *ngFor="let obj of ListaBuses" (click)="openForEdit(obj)">
+        <div class="col " *ngFor="let obj of ListaConductores" (click)="openForEdit(obj)">
             <div class="card text-bg-light mb-3">
                 <!-- <img src="https://img.icons8.com/?size=512&id=0lg0kb05hrOz&format=png"
                     class="card-img-top" alt="user" style="width: 80%;"> -->
                 <div class="card-body">
-                    <h5 class="card-title">{{ obj.Placa }}</h5>
-                    <h6 class="card-title">{{ obj.IdTripulacion }}</h6>
-                    <p class="card-text"><strong>{{obj.Tipo}}</strong></p>
-                    <p class="card-text libre" *ngIf="obj.Mantenimiento == false; else mantenimiento"><strong>Bus pasó mantenimiento</strong></p>
-                    <ng-template #mantenimiento><p class="ocupado"><strong>Bus en mantenimiento</strong></p></ng-template>
-                    <p class="libre" *ngIf="obj.Ocupado == false ;else viaje"><em>Bus libre</em></p>
-                    <ng-template #viaje><p class="ocupado"><em>Realizando viaje</em></p></ng-template>
+                    <!-- <h5 class="card-title">{{ obj.Nombre }} {{ obj.Apellidos }}</h5> -->
+                    <!-- <h6>{{ obj.Cedula }} </h6> -->
+                    <p class="card-text"><strong>{{obj.IdChofer1}}</strong></p>
+                    <p class="card-text"><strong>{{obj.IdChofer2}}</strong></p>
+                    <p class="card-text"><strong>{{obj.IdChofer3}}</strong></p>
+                    <p><em>Codigo: {{ obj.IdCodigo}} </em></p>
+
                     <!-- Button trigger modal Se usa el mismo modal que el boton agregar-->
                     <button type="button" class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                         Edit

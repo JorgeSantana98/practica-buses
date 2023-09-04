@@ -33,6 +33,78 @@ export class PrincipalConductorComponent {
       Sexo: 'F',
       FechaNacimiento: '04/10/1992',
       Experiencia: 1
+    },
+    {
+      IdCodigo: 3,
+      Cedula: '07155498547',
+      Nombre: 'Gerardo',
+      Apellidos: 'Quiros',
+      Sexo: 'M',
+      FechaNacimiento: '04/10/1997',
+      Experiencia: 2
+    },
+    {
+      IdCodigo: 4,
+      Cedula: '07155498562',
+      Nombre: 'Marcelino ',
+      Apellidos: 'Becerra',
+      Sexo: 'M',
+      FechaNacimiento: '04/10/1996',
+      Experiencia: 3
+    },
+    {
+      IdCodigo: 5,
+      Cedula: '07155494712',
+      Nombre: 'Leandro',
+      Apellidos: 'Zurita',
+      Sexo: 'M',
+      FechaNacimiento: '04/10/1994',
+      Experiencia: 4
+    },
+    {
+      IdCodigo: 6,
+      Cedula: '07155494512',
+      Nombre: 'Luis',
+      Apellidos: 'Roman',
+      Sexo: 'M',
+      FechaNacimiento: '04/10/1995',
+      Experiencia: 4
+    },
+    {
+      IdCodigo: 7,
+      Cedula: '07055492893',
+      Nombre: 'Bruno ',
+      Apellidos: 'Fonseca',
+      Sexo: 'M',
+      FechaNacimiento: '04/10/1997',
+      Experiencia: 3
+    },
+    {
+      IdCodigo: 8,
+      Cedula: '07155498547',
+      Nombre: 'Jacobo',
+      Apellidos: 'Sanchis',
+      Sexo: 'M',
+      FechaNacimiento: '04/10/1997',
+      Experiencia: 2
+    },
+    {
+      IdCodigo: 9,
+      Cedula: '07155494523',
+      Nombre: 'Alex',
+      Apellidos: 'Guijarro',
+      Sexo: 'M',
+      FechaNacimiento: '04/10/1998',
+      Experiencia: 2
+    },
+    {
+      IdCodigo: 10,
+      Cedula: '07155499852',
+      Nombre: 'Francisco',
+      Apellidos: 'Borja',
+      Sexo: 'M',
+      FechaNacimiento: '04/10/1997',
+      Experiencia: 2
     }
   ];
   Nuevo: Chofer = new Chofer(0, "", "", "", "", "", 0);
