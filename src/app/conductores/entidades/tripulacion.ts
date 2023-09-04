@@ -1,19 +1,16 @@
-export class Chofer{
+export class Tripulacion{
     IdCodigo:number=0;
-    Cedula:string;
-    Nombre:string;
-    Apellidos:string;
-    Sexo:string;
-    FechaNacimiento:string;
-    Estado:string;
-    constructor(id:number, ced:string, nom:string,ape:string,sex:string,fec:string,est:string)
+    IdChofer1: number;
+    IdChofer2: number;
+    IdChofer3: number;
+    IdChofer4: number;
+
+    constructor(id:number,idc1:number,idc2:number,idc3:number,idc4:number)
     {
         this.IdCodigo = id;
-        this.Cedula = ced;
-        this.Nombre = nom;
-        this.Apellidos =ape;
-        this.Sexo = sex;
-        this.FechaNacimiento = fec;
-        this.Estado = est;
+        this.IdChofer1 = idc1;
+        this.IdChofer2 = idc2;
+        this.IdChofer3 =idc3;
+        this.IdChofer4 = idc4;
     }
 }

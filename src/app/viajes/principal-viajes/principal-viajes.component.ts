@@ -13,7 +13,6 @@ export class PrincipalViajesComponent {
   @ViewChild('miH6') miH6: ElementRef| undefined;
   contenidoH6: number = 0; 
  
-  vehiculoSeleccionado: Bus | undefined;
 
   ngAfterViewInit() {
     if (this.miH6) {
@@ -50,6 +49,8 @@ export class PrincipalViajesComponent {
       FechaHora: '2023-08-31 23:59:59'
     }
   ];
+  vehiculoSeleccionado: Bus | undefined;
+
   Nuevo: Viaje = new Viaje(0, "", 0, 0, "", "","" );
 
   addOrEdit() {

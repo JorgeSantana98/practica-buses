@@ -45,4 +45,6 @@ input {
 .btn {
   margin-right: 5px;
 }
-
+.form-select{
+  margin-bottom: 15px;
+}

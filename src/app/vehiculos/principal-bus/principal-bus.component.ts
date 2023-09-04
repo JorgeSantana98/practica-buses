@@ -18,7 +18,7 @@ export class PrincipalBusComponent {
     {
       IdCodigo: 1,
       IdTripulacion:2,
-      Placa: 'MM0',
+      Placa: 'MM1',
       Tipo: 'bus',
       Mantenimiento: false,
       Ocupado: true
@@ -26,7 +26,15 @@ export class PrincipalBusComponent {
     {
       IdCodigo: 2,
       IdTripulacion:3,
-      Placa: 'MM0',
+      Placa: 'MM2',
+      Tipo: 'bus',
+      Mantenimiento: false,
+      Ocupado: false
+    },
+    {
+      IdCodigo: 3,
+      IdTripulacion:4,
+      Placa: 'MM3',
       Tipo: 'bus',
       Mantenimiento: false,
       Ocupado: false

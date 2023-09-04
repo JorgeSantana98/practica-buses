@@ -1,5 +1,13 @@
 <h1 style="text-align: center;">Administración de Viajes</h1>
 <div class="row">
+    <select class="form-select" id="selectBus" [(ngModel)]="vehiculoSeleccionado">
+        <option *ngFor="let vehiculo of ListaBuses" [ngValue]="vehiculo">{{ vehiculo.IdCodigo }}
+        </option>
+    </select>
+    <div *ngIf="vehiculoSeleccionado">
+        <p>IdCodigo: {{ vehiculoSeleccionado.IdCodigo }}</p>
+        <p>Placa: {{ vehiculoSeleccionado.Placa }}</p>
+    </div>
     <button type="button" class="btn-custom" data-bs-toggle="modal" data-bs-target="#addModal"
         style="margin-bottom: 10px;">
         New Viaje
@@ -18,9 +26,14 @@
                             [(ngModel)]="Nuevo.Tripulacion" />
                         <!-- <span [(ngModel)]="Nuevo.Tripulacion"></span> -->
                         <!-- <input class="form-control" type="text" placeholder="Bus" name="bus" [(ngModel)]="Nuevo.Bus" /> -->
-                        <select [(ngModel)]="vehiculoSeleccionado">
-                            <option *ngFor="let vehiculo of ListaBuses" [ngValue]="vehiculo">{{ vehiculo.IdCodigo }}</option>
-                          </select>
+                        <select class="form-select" id="selectBus" [(ngModel)]="vehiculoSeleccionado">
+                            <option *ngFor="let vehiculo of ListaBuses" [ngValue]="vehiculo">{{ vehiculo.IdCodigo }}
+                            </option>
+                        </select>
+                        <div *ngIf="vehiculoSeleccionado">
+                            <p>IdCodigo: {{ vehiculoSeleccionado.IdCodigo }}</p>
+                            <p>Placa: {{ vehiculoSeleccionado.Placa }}</p>
+                        </div>
                         <input class="form-control" type="text" placeholder="Origen" name="origen"
                             [(ngModel)]="Nuevo.Origen" />
                         <input class="form-control" type="text" placeholder="Destino" name="destino"
@@ -73,7 +86,7 @@
                 <!-- Offcanvas -->
                 <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
                     id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-                    <div class="offcanvas-header" >
+                    <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Detalles del Bus</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
@@ -84,7 +97,7 @@
                                     <!-- <h5 class="mb-1">List group item heading</h5>
                                     <small class="text-body-secondary">3 days ago</small> -->
                                     <h5 class="mb-1">{{ objB.Placa }}</h5><br>
-                                    <h5 class="mb-1" >Codigo:{{ objB.IdCodigo }}</h5><br>
+                                    <h5 class="mb-1">Codigo:{{ objB.IdCodigo }}</h5><br>
                                     <p class="libre" *ngIf="objB.Ocupado == false ;else viaje"><em>Bus libre</em></p>
                                     <ng-template #viaje>
                                         <p class="ocupado"><em>Realizando viaje</em></p>
