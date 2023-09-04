@@ -1,0 +1,61 @@
+<h1 style="text-align: center;">Administración de Choferes</h1>
+<div class="row">
+    <button type="button" class="btn-custom" data-bs-toggle="modal" data-bs-target="#addModal"
+        style="margin-bottom: 10px;">
+        New Chofer
+    </button>
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addModalLabel">Agregar Mercaderia</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input class="form-control" type="text" placeholder="Cedula" name="cedula"
+                            [(ngModel)]="Nuevo.Cedula" />
+                        <input class="form-control" type="text" placeholder="Nombre" name="nombre"
+                            [(ngModel)]="Nuevo.Nombre" />
+                        <input class="form-control" type="text" placeholder="Apellidos" name="apellidos"
+                            [(ngModel)]="Nuevo.Apellidos" />
+                        <input class="form-control" type="text" placeholder="Sexo" name="sexo"
+                            [(ngModel)]="Nuevo.Sexo" />
+                        <input class="form-control" type="text" placeholder="FechaNacimiento" name="fechaNacimiento"
+                            [(ngModel)]="Nuevo.FechaNacimiento" />
+                        <input class="form-control" type="text" placeholder="Estado" name="estado"
+                            [(ngModel)]="Nuevo.Experiencia" />
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" id="btn-form" (click)="addOrEdit()" class="btn btn-primary">Save
+                                changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4 ">
+        <div class="col " *ngFor="let obj of ListaConductores" (click)="openForEdit(obj)">
+            <div class="card text-bg-light mb-3">
+                <!-- <img src="https://img.icons8.com/?size=512&id=0lg0kb05hrOz&format=png"
+                    class="card-img-top" alt="user" style="width: 80%;"> -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ obj.Nombre }} {{ obj.Apellidos }}</h5>
+                    <h6>{{ obj.Cedula }} </h6>
+                    <p class="card-text"><strong>{{obj.FechaNacimiento}}</strong></p>
+                    <p class="card-text"><strong>Años de conduccion: {{obj.Experiencia}}</strong></p>
+                    <p class="card-text"><strong>Sexo: {{obj.Sexo}}</strong></p>
+                    <p><em>Codigo: {{ obj.IdCodigo}} </em></p>
+
+                    <!-- Button trigger modal Se usa el mismo modal que el boton agregar-->
+                    <button type="button" class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+                        Edit
+                    </button>
+                    <button class="btn btn-primary" (click)="Delete()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

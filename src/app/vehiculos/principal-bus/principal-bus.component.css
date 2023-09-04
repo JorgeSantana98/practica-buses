@@ -1,0 +1,52 @@
+input {
+  margin-bottom: 10px;
+}
+.btn-custom {
+  margin-bottom: 5px;
+  background-color: #ff5722;
+  width: auto;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 50px;
+  /*Formaredonda*/
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  /*Sombra*/
+  transition: transform 0.2s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  -webkit-transition: transform 0.2s ease, background-color 0.3s ease;
+  -moz-transition: transform 0.2s ease, background-color 0.3s ease;
+  -ms-transition: transform 0.2s ease, background-color 0.3s ease;
+  -o-transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.btn-custom:hover {
+  background-color: #e64a19;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.card {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+/* .card:hover {
+      transform: translateY(-5px);
+    } */
+input {
+  margin-bottom: 10px;
+}
+.btn {
+  margin-right: 5px;
+}
+.libre{
+  color: green;
+}
+.ocupado{
+  color: red;
+}
+

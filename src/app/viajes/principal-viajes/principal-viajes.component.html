@@ -1,0 +1,110 @@
+<h1 style="text-align: center;">Administración de Viajes</h1>
+<div class="row">
+    <button type="button" class="btn-custom" data-bs-toggle="modal" data-bs-target="#addModal"
+        style="margin-bottom: 10px;">
+        New Viaje
+    </button>
+    <!-- <input class="form-control" type="number" [(ngModel)]="filtroTexto" placeholder=""> -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addModalLabel">Iniciar Viaje</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input class="form-control" type="num" placeholder="Tripulacion" name="tripulacion"
+                            [(ngModel)]="Nuevo.Tripulacion" />
+                        <!-- <span [(ngModel)]="Nuevo.Tripulacion"></span> -->
+                        <!-- <input class="form-control" type="text" placeholder="Bus" name="bus" [(ngModel)]="Nuevo.Bus" /> -->
+                        <select [(ngModel)]="vehiculoSeleccionado">
+                            <option *ngFor="let vehiculo of ListaBuses" [ngValue]="vehiculo">{{ vehiculo.IdCodigo }}</option>
+                          </select>
+                        <input class="form-control" type="text" placeholder="Origen" name="origen"
+                            [(ngModel)]="Nuevo.Origen" />
+                        <input class="form-control" type="text" placeholder="Destino" name="destino"
+                            [(ngModel)]="Nuevo.Destino" />
+                        <input class="form-control" type="text" placeholder="FechaHora" name="fechaHora"
+                            [(ngModel)]="Nuevo.FechaHora" />
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" id="btn-form" (click)="addOrEdit()" class="btn btn-primary">Save
+                                changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- *****Cards para listar los viajes**** -->
+    <div class="row row-cols-1 row-cols-md-4 g-4 ">
+        <div class="col " *ngFor="let obj of ListaViajes" (click)="openForEdit(obj)">
+            <ng-container>
+                <!-- *ngIf="obj.IdCodigo == filtroTexto" -->
+                <div class="card text-bg-light mb-3">
+                    <!-- <img src="https://img.icons8.com/?size=512&id=0lg0kb05hrOz&format=png"
+                        class="card-img-top" alt="user" style="width: 80%;"> -->
+                    <div class="card-body">
+                        <h5 class="card-title">Viaje Nº {{ obj.IdCodigo }}</h5>
+                        <h5 class="card-title">Viaje Nº {{ obj.Codigo }}</h5>
+                        <p class="card-text"><strong>Desde {{obj.Origen}} y destino a {{obj.Destino}}</strong></p>
+                        <!-- <p class="card-text"><strong>y destino a {{obj.Destino}} </strong></p> -->
+                        <h6 #miH6>Bus Nº: {{ obj.Bus }}
+                            <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"
+                                style="font-size: x-small;">Ver detalles del
+                                bus
+                            </button>
+                        </h6>
+                        <p class="card-text"><strong>{{obj.FechaHora}}</strong></p>
+                        <p class="card-text"><strong>Codigo de Tripulacion: {{obj.Tripulacion}}</strong></p>
+                        <p><em>Codigo: {{ obj.IdCodigo}} </em></p>
+                        <!-- Button trigger modal Se usa el mismo modal que el boton agregar-->
+                        <button type="button" class=" btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#addModal">
+                            Edit
+                        </button>
+                        <button class="btn btn-primary" (click)="Delete()">Delete</button>
+                    </div>
+                </div>
+                <!-- Offcanvas -->
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                    <div class="offcanvas-header" >
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Detalles del Bus</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body" *ngFor="let objB of ListaBuses">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <!-- <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-body-secondary">3 days ago</small> -->
+                                    <h5 class="mb-1">{{ objB.Placa }}</h5><br>
+                                    <h5 class="mb-1" >Codigo:{{ objB.IdCodigo }}</h5><br>
+                                    <p class="libre" *ngIf="objB.Ocupado == false ;else viaje"><em>Bus libre</em></p>
+                                    <ng-template #viaje>
+                                        <p class="ocupado"><em>Realizando viaje</em></p>
+                                    </ng-template>
+                                </div>
+                                <p class="mb-1"><strong>Tipo de vehiculo: {{objB.Tipo}}</strong></p>
+                                <p class="mb-1" *ngIf="objB.Mantenimiento == false; else mantenimiento">
+                                    <strong>Bus pasó mantenimiento</strong>
+                                </p>
+                                <ng-template #mantenimiento>
+                                    <p class="ocupado"><strong>Bus en mantenimiento</strong></p>
+                                </ng-template>
+                                <!-- <p class="mb-1">Some placeholder content in a paragraph.</p>
+                                <small class="text-body-secondary">And some muted small print.</small> -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+</div>
